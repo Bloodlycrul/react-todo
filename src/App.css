@@ -1,0 +1,102 @@
+*{
+  padding: 0;
+  margin: 0;
+
+}
+
+body{
+
+  background-color: #EDF1F5;
+}
+
+.model{
+  width: 700px;
+  height: 600px;
+  background-color: white;
+  margin: auto;
+  position: relative;
+  border-radius: 16px;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.model h1{
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+/* .model :nth-child(1){
+  text-align: center;
+  padding-top: 10px;
+} */
+
+.close{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 10px;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: rgba(65, 65, 243, 0.835);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+}
+
+ 
+.addtodo input[type="text"],
+.addtodo input[type="date"],
+.addtodo button {
+  display: block;
+  width: calc(100% - 40px); /* Adjust the width calculation as needed */
+  height: 50px;
+  margin: 15px 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid lightgray;
+}
+
+.display{
+  display: none;
+}
+
+.success{
+  width: 300px;
+  height: 100px;
+  background-color: greenyellow;
+  position: absolute;
+  right: calc(100% - 55%);
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 56px;
+}
+
+.success h1{
+  font-size: 20px;
+}
+
+
+.error{
+  width: 300px;
+  height: 100px;
+  background-color: rgb(255, 47, 47);
+  color: white;
+  position: absolute;
+  right: calc(100% - 55%);
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 56px;
+}
+
+.error h1{
+  font-size: 20px;
+}
