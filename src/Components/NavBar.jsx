@@ -1,10 +1,17 @@
 import styles from "./NavBar.module.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import React from "react";
-import { TaskList } from "./TaskList";
 
+let getObjects = ()=>{
+  let list = localStorage.getItem('todo');
+  console.log(list);
 
-
+  if(list){
+    return JSON.parse(list);
+  }else{
+    return [];
+  }
+}
 
 function NavBar() {
 
@@ -15,6 +22,11 @@ function NavBar() {
   let [addButton, setAddButton] = useState(false);
   let[success, setSuccess] = useState(false)
   let[error, setError] = useState(false)
+  let[taskList, setTaskList] = useState(getObjects());
+
+  useEffect(()=>{
+    localStorage.setItem('todo' , JSON.stringify(taskList))
+  }, [taskList])
 
   
 
@@ -43,7 +55,8 @@ function addTask (){
     description:des.current.value,
     dueDate:date.current.value,
   }
-  TaskList.push(temp);
+
+  setTaskList(prevArry => [...prevArry, temp]);
 
   task.current.value = '';
   des.current.value = '';
@@ -118,15 +131,28 @@ function addTask (){
     <button onClick={addTask}>Add Task</button>
     </form>
 
+   
+
     </div>
     </div>
     </div>
 
+    {taskList.map((task, index) => (
+      <div className='todo' key={index}>
+        <h3>{task.title}</h3>
+        <p>{task.description}</p>
+        <p>{task.dueDate}</p>
+      </div>
+    ))}
 
-    
     </>
   );
 }
 
 
 export default NavBar;
+
+
+
+
+// https://code-projects.org/wp-content/uploads/2021/12/notes.png
