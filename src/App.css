@@ -104,7 +104,7 @@ body{
 
 .todo{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border-radius: 16px;
   width: 500px ;
   height: auto;
@@ -112,6 +112,12 @@ body{
   margin: 0px 40px;
   padding: 10px;
   margin: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coloumWidth{
+  width: 300px;
 }
 
 .position{
@@ -132,5 +138,13 @@ body{
   flex-direction: row;
   flex-wrap: wrap;
   flex-grow: 1;
+}
 
+
+.btn{
+  margin-right: 10px;
+  background-color: blueviolet;
+  display: flex;
+  align-items: center;
+  color: white;
 }

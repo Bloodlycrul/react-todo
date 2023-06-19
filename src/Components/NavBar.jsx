@@ -4,7 +4,6 @@ import React from "react";
 
 let getObjects = ()=>{
   let list = localStorage.getItem('todo');
-  console.log(list);
 
   if(list){
     return JSON.parse(list);
@@ -69,6 +68,13 @@ function addTask (){
   }, 3000);
 }
 }
+
+
+
+ let  handleDelete = (key)=>{
+  console.log(localStorage.removeItem("todo")); 
+
+ }
 
   return (
     <>
@@ -137,11 +143,18 @@ function addTask (){
     <div className="flexcoloum"  >
     {taskList.map((task, index) => (
     
-      <div className='todo'key={index} >
+      <div className="todo" key={index} >
+      <div className='coloumWidth'>
         <h3>{task.title}</h3>
         <p>{task.description}</p>
         <p>{task.dueDate}</p>
       </div>
+
+      <div>
+      <button onClick={handleDelete} className="btn">Delete</button>
+      </div>
+      </div>
+      
     
     ))}
     </div>
