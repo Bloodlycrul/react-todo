@@ -114,7 +114,7 @@ function addTask (){
       </nav>
 
       {/* Add Task Model Added   */}
-      <div className={addButton ? '' : 'display'}>
+    <div className={addButton === true? "position" : "display"}>
     <div className='model'>
     <div>
     <h1>Enter Your Todo Here</h1>
@@ -130,20 +130,21 @@ function addTask (){
     <input ref={date}  type="date" name="" id="" />
     <button onClick={addTask}>Add Task</button>
     </form>
-
-   
-
     </div>
     </div>
     </div>
 
+    <div className="flexcoloum"  >
     {taskList.map((task, index) => (
-      <div className='todo' key={index}>
+    
+      <div className='todo'key={index} >
         <h3>{task.title}</h3>
         <p>{task.description}</p>
         <p>{task.dueDate}</p>
       </div>
+    
     ))}
+    </div>
 
     </>
   );

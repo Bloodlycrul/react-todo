@@ -106,10 +106,31 @@ body{
   display: flex;
   flex-direction: column;
   border-radius: 16px;
-  width: auto ;
+  width: 500px ;
   height: auto;
   background-color: white;
   margin: 0px 40px;
   padding: 10px;
   margin: 20px;
+}
+
+.position{
+  position: absolute;
+  top:  calc(100%-40%);
+  right: 50%;
+  left: 30%;
+  z-index: 2;
+}
+.background{
+  background-color: black;
+  height: auto;
+}
+
+
+.flexcoloum{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
 }
