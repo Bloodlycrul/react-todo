@@ -17,6 +17,7 @@ function NavBar() {
   let task = useRef();
   let des = useRef();
   let date = useRef();
+  let search = useRef();
 
   let [addButton, setAddButton] = useState(false);
   let[success, setSuccess] = useState(false)
@@ -69,12 +70,30 @@ function addTask (){
 }
 }
 
+const searchResult = () => {
+  let searchItem = search.current.value.trim().toLowerCase();
+  if (searchItem === '') {
+    alert('Search');
+    return []; // or handle empty search input in an appropriate way
+  }
+  const filteredList = taskList.filter((task) => {
+    const taskTitle = task.title.toLowerCase();
+    return taskTitle.includes(searchItem);
+  });
+ console.log(filteredList);
+ return filteredList;
+};
 
 
- let  handleDelete = (key)=>{
-  console.log(localStorage.removeItem("todo")); 
 
- }
+
+const handleRemoveItem = (selectedTodo) => {
+   taskList.filter((index)=>{
+    return !index===taskList.index;
+  })
+
+};
+
 
   return (
     <>
@@ -113,9 +132,12 @@ function addTask (){
         {/* Add Note    */}
 
         <div className={styles.container}>
+        <input ref={search}  type="text" placeholder="Search Your Task"/>
+        <button className="btn" onClick={searchResult}>Search</button>
           <button onClick={checktodo} className={styles.addbtn}>
             +
           </button>
+          
         </div>
       </nav>
 
@@ -145,13 +167,14 @@ function addTask (){
     
       <div className="todo" key={index} >
       <div className='coloumWidth'>
+      
         <h3>{task.title}</h3>
         <p>{task.description}</p>
         <p>{task.dueDate}</p>
       </div>
 
       <div>
-      <button onClick={handleDelete} className="btn">Delete</button>
+      <button onClick={handleRemoveItem} className="btn">Delete</button>
       </div>
       </div>
       
